@@ -1,0 +1,48 @@
+<form class="content" [formGroup]="userRegisterForm" (ngSubmit)="register()">
+    <app-title text="register"></app-title>
+    <app-input
+      placeholder="dni"
+      type="dni"
+      icon="fas fa-user"
+      formControlName="dni">
+    </app-input>
+    
+    <app-input
+      placeholder="name"
+      type="name"
+      icon="fas fa-key" formControlName="name">
+    </app-input>
+  
+    <app-input
+      placeholder="apellido"
+      type="apellido"
+      icon="fas fa-key"
+      formControlName="apellido">
+    </app-input>
+
+    <app-input
+      placeholder="telefono"
+      type="telefono"
+      icon="fas fa-key"
+      formControlName="telefono">
+    </app-input>
+
+    <app-input
+      placeholder="edad"
+      type="edad"
+      icon="fas fa-key"
+      formControlName="edad">
+    </app-input>
+
+    <app-input
+      placeholder="direccion"
+      type="direccion"
+      icon="fas fa-key"
+      formControlName="direccion">
+    </app-input>
+  
+    
+    <app-button type="submit" [disabled]="userRegisterForm.invalid">Guardar</app-button>
+    <app-button type="submit" [routerLink]="'tabla'">Mostar Datos</app-button>
+
+</form>

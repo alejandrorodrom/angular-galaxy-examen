@@ -1,0 +1,43 @@
+<ng-template [ngIf]="dataSource.length">
+    <h3 class="title">Data Formulario</h3>
+  
+    <form [formGroup]="form">
+      <table mat-table [dataSource]="dataSource" formArrayName="items">
+
+        <ng-container matColumnDef="dni">
+          <th mat-header-cell *matHeaderCellDef>DNI</th>
+          <td mat-cell *matCellDef="let element">{{element.dni}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td mat-cell *matCellDef="let element">{{element.name}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="apellido">
+            <th mat-header-cell *matHeaderCellDef>Apellido</th>
+            <td mat-cell *matCellDef="let element">{{element.apellido}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="telefono">
+            <th mat-header-cell *matHeaderCellDef>Telefono</th>
+            <td mat-cell *matCellDef="let element">{{element.telefono}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="direccion">
+            <th mat-header-cell *matHeaderCellDef>Direccion</th>
+            <td mat-cell *matCellDef="let element">{{element.direccion}} </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </form>
+    
+    <app-button (click)="enviar()" class="button">Enviar Formulario</app-button>
+    <app-button (click)="regresar()" class="button" [routerLink]="'formulario'">Ir a Formulario</app-button>
+  </ng-template>
+  
+  <ng-template [ngIf]="!dataSource.length">
+    <h3 class="title">No hay datos registrado</h3>
+  </ng-template>
