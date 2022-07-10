@@ -5,7 +5,7 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ControlError } from 'src/app/shared/interfaces/error.interface';
 import { Usuario } from 'src/app/shared/interfaces/usuario.interface';
 import { UsuarioAddAction } from 'src/app/shared/stores/usuario/usuario.actions';
@@ -17,8 +17,6 @@ import { UsuarioStore } from 'src/app/shared/stores/usuario/usuario.store';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
-  usuarios: Usuario[] = [];
-
   userRegisterForm: FormGroup = new FormGroup({
     dni: new FormControl('45632145', [
       Validators.required,
@@ -154,18 +152,7 @@ export class UserComponent implements OnInit {
     },
   ];
 
-  constructor(
-    private router: Router,
-    private usuarioStore: UsuarioStore,
-    private activatedRoute: ActivatedRoute
-  ) {
-    this.activatedRoute.data.subscribe((value) => {
-      if (value['data'].error) {
-      } else {
-        this.usuarios = value['data'];
-      }
-    });
-  }
+  constructor(private router: Router, private usuarioStore: UsuarioStore) {}
 
   ngOnInit(): void {}
 
