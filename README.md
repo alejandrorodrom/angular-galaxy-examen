@@ -2,7 +2,7 @@
 
 ## Nombre y Apellidos:
 
-Aqui va su nombre
+JosePinedo
 
 # Adicionales:
 
