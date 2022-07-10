@@ -6,5 +6,5 @@ Cristopher Juan Greta Quispe
 
 # Adicionales:
 
-- Adicional 1
+- Angular Material
 - Adicional 2

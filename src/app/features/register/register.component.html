@@ -1,0 +1,46 @@
+<form class="example-form" [formGroup]="presenter.userRegisterForm" (ngSubmit)="register()">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>DNI</mat-label>
+        <input matInput placeholder="dni" formControlName="dni">
+    </mat-form-field>
+    <app-control-error [show]="presenter.isDniError" [errors]="presenter.dniErrors" [messages]="presenter.dniErrorMessage"></app-control-error>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="nombre" formControlName="nombre"/>
+    </mat-form-field>
+    <app-control-error [show]="presenter.isNombreError" [errors]="presenter.nombreErrors" [messages]="presenter.nombreErrorMessage"></app-control-error>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Apellidos</mat-label>
+        <input matInput placeholder="apellidos" formControlName="apellido"/>
+    </mat-form-field>
+    <app-control-error [show]="presenter.isApellidoError" [errors]="presenter.apellidoErrors" [messages]="presenter.apellidoErrorMessage"></app-control-error>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Teléfono</mat-label>
+        <input matInput placeholder="teléfono" formControlName="telefono"/>
+    </mat-form-field>
+    <app-control-error [show]="presenter.isTelefonoError" [errors]="presenter.telefonoErrors" [messages]="presenter.telefonoErrorMessage"></app-control-error>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Edad</mat-label>
+        <input type="number" matInput placeholder="edad" formControlName="edad"/>
+    </mat-form-field>
+    <app-control-error [show]="presenter.isEdadError" [errors]="presenter.edadErrors" [messages]="presenter.edadErrorMessage"></app-control-error>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Dirección</mat-label>
+        <input matInput placeholder="dirección" formControlName="direccion"/>
+    </mat-form-field>
+    <app-control-error [show]="presenter.isDireccionError" [errors]="presenter.direccionErrors" [messages]="presenter.direccionErrorMessage"></app-control-error>
+
+    <mat-divider></mat-divider>
+    <section>
+    <div class="example-label"></div>
+    <div class="example-button-row">
+        <button type="button" mat-raised-button>Mostrar datos</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="presenter.userRegisterForm.invalid">Guardar</button>
+    </div>
+    </section>
+</form>
