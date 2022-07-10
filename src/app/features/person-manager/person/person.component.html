@@ -1,0 +1,53 @@
+
+<div class="content">
+    <div class="contact">
+        <form action="">
+
+            <app-input type="text" placeholder="DNI" icon="fas fa-user" formControlName="liscenceNumber"></app-input>
+            <app-control-error
+                [show]="presenter.isLiscenceNumberError"
+                [errors]="presenter.liscenceNumberErrors"
+                [messages]="presenter.liscenceNumberErrorMessage">
+            </app-control-error>
+
+            <app-input type="text" placeholder="Nombre" icon="fas fa-user" formControlName="firstName"></app-input>
+            <app-control-error
+                [show]="presenter.isFirstNameError"
+                [errors]="presenter.firstNameErrors"
+                [messages]="presenter.firstNameErrorMessage">
+            </app-control-error>
+
+            <app-input type="text" placeholder="Apellido" icon="fas fa-user" formControlName="lastName"></app-input>
+            <app-control-error
+                [show]="presenter.isLastNameError"
+                [errors]="presenter.lastNameErrors"
+                [messages]="presenter.lastNameErrorMessage">
+            </app-control-error>
+
+            <app-input type="text" placeholder="Telefono" icon="fas fa-user" formControlName="phone"></app-input>
+            <app-control-error
+                [show]="presenter.isPhoneError"
+                [errors]="presenter.phoneErrors"
+                [messages]="presenter.phoneErrorMessage">
+            </app-control-error>
+
+            <app-input type="text" placeholder="Edad" icon="fas fa-user" formControlName="yearOld"></app-input>
+            <app-control-error
+                [show]="presenter.isYearOldError"
+                [errors]="presenter.yearOldErrors"
+                [messages]="presenter.yearOldErrorMessage">
+            </app-control-error>
+
+            <app-input type="text" placeholder="Direccción" icon="fas fa-user" formControlName="address"></app-input>
+            <app-control-error
+                [show]="presenter.isAddressError"
+                [errors]="presenter.addressErrors"
+                [messages]="presenter.addressErrorMessage">
+            </app-control-error>
+
+            <app-button type="submit" [disabled]="presenter.personFormGroup.invalid">
+                <ng-template #text>Contact Now</ng-template>
+            </app-button>
+        </form>
+    </div>
+</div>
