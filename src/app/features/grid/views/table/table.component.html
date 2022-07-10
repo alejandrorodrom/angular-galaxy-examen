@@ -1,0 +1,32 @@
+<ng-template [ngIf]="dataSource.length">
+  <button type="button" (click)="redirectForm()">Ir formulario</button>
+  <button type="button">Enviar</button>
+  <form>
+    <table>
+      <thead>
+        <tr>
+          <th>Dni</th>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Telefono</th>
+          <th>Edad</th>
+          <th>Direccion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of dataSource">
+          <td>{{ usuario.dni }}</td>
+          <td>{{ usuario.nombre }}</td>
+          <td>{{ usuario.apellidos }}</td>
+          <td>{{ usuario.telefono }}</td>
+          <td>{{ usuario.edad }}</td>
+          <td>{{ usuario.direccion }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</ng-template>
+<ng-template [ngIf]="!dataSource.length">
+  <button type="button" (click)="redirectForm()">Ir formulario</button>
+  <h3>No registrado</h3>
+</ng-template>
