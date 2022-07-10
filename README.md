@@ -2,9 +2,9 @@
 
 ## Nombre y Apellidos:
 
-youssef_marcos
+jose_antonio_huaman
 
 # Adicionales:
 
-- Adicional 1
+- correo: cero.one.x@gmail.com
 - Adicional 2
