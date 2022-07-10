@@ -1,16 +1,11 @@
-<form action="/my-handling-form-page" method="post">
-    <ul>
-        <li>
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" name="user_name">
-        </li>
-        <li>
-            <label for="mail">Correo electrónico:</label>
-            <input type="email" id="mail" name="user_mail">
-        </li>
-        <li>
-            <label for="msg">Mensaje:</label>
-            <textarea id="msg" name="user_message"></textarea>
-        </li>
-    </ul>
+<form class="content" (ngSubmit)="Registrar()">
+
+    <!-- <app-input placeholder="DNI" type="DNI" icon="fas fa-user"></app-input> -->
+    <!-- <app-input id="Nombre" placeholder="Nombre" type="Nombre" icon="fas fa-key"></app-input>
+    <app-input id="Apellidos" placeholder="Apellidos" type="Apellidos" icon="fas fa-key"></app-input>
+    <app-input id="Telefono" placeholder="Teléfono" type="Teléfono" icon="fas fa-key"></app-input>
+    <app-input id="Edad" placeholder="Edad" type="Edad" icon="fas fa-key"></app-input>
+    <app-input id="Direccion " placeholder="Dirección " type="Dirección " icon="fas fa-key"></app-input> -->
+
+    <!-- <button class="fs-2 mt-3 align-self-center" mat-raised-button color="accent" type="button" routerLink="/auth/register">Register</button> -->
 </form>

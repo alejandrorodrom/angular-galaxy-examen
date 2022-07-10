@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { FormularioRoutingModule } from './formulario-routing.module';
 import { FormularioComponent } from './formulario.component';
+import { InputComponent } from '../components/input/input.component';
 
 
 @NgModule({
   declarations: [
-    FormularioComponent
+    FormularioComponent,
+    InputComponent
   ],
   imports: [
     CommonModule,
