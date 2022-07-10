@@ -5,6 +5,7 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ControlError } from 'src/app/shared/interfaces/error.interface';
 
 @Component({
@@ -148,7 +149,7 @@ export class UserComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -163,5 +164,9 @@ export class UserComponent implements OnInit {
       direccion: '',
     });
     this.userRegisterForm.reset();
+  }
+
+  readirectGird(): void {
+    this.router.navigateByUrl('/grid');
   }
 }
