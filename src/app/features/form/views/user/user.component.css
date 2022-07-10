@@ -1,0 +1,42 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2.5rem 30%;
+  text-align: center;
+}
+
+input {
+  width: 80%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  text-transform: none;
+  background: none;
+}
+
+span {
+  font-size: 2rem;
+  padding-left: 2rem;
+}
+
+.title {
+  text-transform: uppercase;
+  padding-bottom: 1.5rem;
+  font-size: 4rem;
+}
+
+button {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.9rem 3rem;
+  font-size: 1.7rem;
+  cursor: pointer;
+  background-color: dimgray;
+}
+
+button:disabled,
+button[disabled] {
+  color: gray;
+  background: lightgray;
+  cursor: not-allowed;
+}
