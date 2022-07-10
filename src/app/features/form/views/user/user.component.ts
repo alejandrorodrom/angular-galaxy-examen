@@ -18,27 +18,27 @@ import { UsuarioStore } from 'src/app/shared/stores/usuario/usuario.store';
 })
 export class UserComponent implements OnInit {
   userRegisterForm: FormGroup = new FormGroup({
-    dni: new FormControl('45632145', [
+    dni: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
       Validators.maxLength(8),
       Validators.pattern('^[0-9]*$'),
     ]),
-    nombre: new FormControl('Juan', [Validators.required]),
-    apellidos: new FormControl('Perez', [Validators.required]),
-    telefono: new FormControl('999666333', [
+    nombre: new FormControl('', [Validators.required]),
+    apellidos: new FormControl('', [Validators.required]),
+    telefono: new FormControl('', [
       Validators.required,
       Validators.pattern(
         /^[+]?[(]?[0-9]{3}[)]?[-s.]?[0-9]{3}[-s.]?[0-9]{3,6}$/
       ),
     ]),
-    edad: new FormControl('35', [
+    edad: new FormControl('', [
       Validators.required,
       Validators.min(17),
       Validators.max(130),
       Validators.pattern('^[0-9]*$'),
     ]),
-    direccion: new FormControl('Test 123', [
+    direccion: new FormControl('', [
       Validators.required,
       Validators.maxLength(40),
     ]),

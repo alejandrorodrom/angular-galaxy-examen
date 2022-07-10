@@ -9,15 +9,7 @@ import { UsuarioStore } from 'src/app/shared/stores/usuario/usuario.store';
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
-  displayedColumns: string[] = [
-    'dni',
-    'nombre',
-    'apellidos',
-    'telefono',
-    'edad',
-    'direccion',
-  ];
-  dataSource: {
+  usuarios: {
     id: number;
     dni: string;
     nombre: string;
@@ -42,7 +34,7 @@ export class TableComponent implements OnInit {
   }
 
   loadData(): void {
-    this.dataSource = this.usuarioStore.state.items.map((item) => {
+    this.usuarios = this.usuarioStore.state.items.map((item) => {
       return {
         id: item.id,
         dni: item.dni,
@@ -56,7 +48,7 @@ export class TableComponent implements OnInit {
   }
 
   enviar(): void {
-    this.gridService.enviar(this.dataSource).subscribe((res) => {
+    this.gridService.enviar(this.usuarios).subscribe((res) => {
       console.log(res);
     });
   }
