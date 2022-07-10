@@ -1,1 +1,13 @@
-<p>table works!</p>
+<ng-template [ngIf]="dataSource.length">
+  <button type="button" (click)="redirectForm()">Ir a formulario</button>
+  <button type="button" [ngIf]="dataSource.length">Enviar</button>
+  <form>
+    <table >
+
+    </table>
+  </form>
+</ng-template>
+<ng-template [ngIf]="!dataSource.length">
+  <button type="button" (click)="redirectForm()">Ir a formulario</button>
+  <h3>No hay datos registrados</h3>
+</ng-template>
