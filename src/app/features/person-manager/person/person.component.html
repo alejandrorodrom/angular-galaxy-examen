@@ -1,7 +1,7 @@
 
 <div class="content">
     <div class="contact">
-        <form action="">
+        <form [formGroup]="presenter.personFormGroup">
 
             <app-input type="text" placeholder="DNI" icon="fas fa-user" formControlName="liscenceNumber"></app-input>
             <app-control-error
