@@ -17,9 +17,7 @@ export class UsuarioSetAllAction implements Action {
 export class UsuarioAddAction implements Action {
   readonly type = UsuarioActionTypes.ADD;
 
-  constructor(public payload: { item: Usuario }) {
-    console.log('UsuarioAddAction');
-  }
+  constructor(public payload: { item: Usuario }) {}
 }
 export class UsuarioUpdateAction implements Action {
   readonly type = UsuarioActionTypes.UPDATE;
