@@ -1,1 +1,27 @@
-<p>user works!</p>
+<form [formGroup]="userRegisterForm">
+  <h1>REGISTRAR USUARIO</h1>
+  <div class="div-input">
+    <input type="text" placeholder="dni" formControlName="dni" />
+  </div>
+  <app-control-error
+    [show]="isDniError"
+    [errors]="dniErrors"
+    [messages]="dniErrorMessages"
+  ></app-control-error>
+  <div class="div-input">
+    <input type="text" placeholder="nombre" formControlName="nombre" />
+  </div>
+  <div class="div-input">
+    <input type="text" placeholder="apellidos" formControlName="apellido" />
+  </div>
+  <div class="div-input">
+    <input type="text" placeholder="telefono" formControlName="telefono" />
+  </div>
+  <div class="div-input">
+    <input type="text" placeholder="edad" formControlName="edad" />
+  </div>
+  <div class="div-input">
+    <input type="text" placeholder="direccion" formControlName="direccion" />
+  </div>
+  <button type="submit" [disabled]="userRegisterForm.invalid">Registrar</button>
+</form>
