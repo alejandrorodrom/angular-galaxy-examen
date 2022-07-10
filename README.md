@@ -8,3 +8,7 @@ Juliette Vasquez Trujillo
 
 - Adicional 1
 - Adicional 2
+
+## Observaciones
+
+- No encontre cambios 😢
