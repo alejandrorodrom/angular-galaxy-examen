@@ -18,12 +18,26 @@ export class UserComponent implements OnInit {
       Validators.required,
       Validators.minLength(8),
       Validators.maxLength(8),
+      Validators.pattern('^[0-9]*$'),
     ]),
     nombre: new FormControl('', [Validators.required]),
     apellido: new FormControl('', [Validators.required]),
-    telefono: new FormControl('', [Validators.required]),
-    edad: new FormControl('', [Validators.required]),
-    direccion: new FormControl('', [Validators.required]),
+    telefono: new FormControl('', [
+      Validators.required,
+      Validators.pattern(
+        /^[+]?[(]?[0-9]{3}[)]?[-s.]?[0-9]{3}[-s.]?[0-9]{3,6}$/
+      ),
+    ]),
+    edad: new FormControl('', [
+      Validators.required,
+      Validators.min(17),
+      Validators.max(130),
+      Validators.pattern('^[0-9]*$'),
+    ]),
+    direccion: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(40),
+    ]),
   });
 
   get dniControl(): FormControl {
@@ -105,6 +119,7 @@ export class UserComponent implements OnInit {
     { validator: 'required', message: 'El campo es requerido' },
     { validator: 'minlength', message: 'El campo debe tener 8 caracteres' },
     { validator: 'maxlength', message: 'El campo debe tener 8 caracteres' },
+    { validator: 'pattern', message: 'El campo debe contener solo números' },
   ];
   readonly nombreErrorMessages: ControlError[] = [
     { validator: 'required', message: 'El campo es requerido' },
@@ -114,12 +129,20 @@ export class UserComponent implements OnInit {
   ];
   readonly telefonoErrorMessages: ControlError[] = [
     { validator: 'required', message: 'El campo es requerido' },
+    {
+      validator: 'pattern',
+      message: 'El campo debe contener un número de teléfono',
+    },
   ];
   readonly edadErrorMessages: ControlError[] = [
     { validator: 'required', message: 'El campo es requerido' },
+    { validator: 'min', message: 'El campo debe ser mayor a 17' },
+    { validator: 'max', message: 'El campo debe ser menor a 130' },
+    { validator: 'pattern', message: 'El campo debe contener solo números' },
   ];
   readonly direccionErrorMessages: ControlError[] = [
     { validator: 'required', message: 'El campo es requerido' },
+    { validator: 'maxlength', message: 'El campo debe tener un máximo de 40 caracteres' },
   ];
 
   constructor() {}

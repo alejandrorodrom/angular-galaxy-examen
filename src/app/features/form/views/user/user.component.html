@@ -11,17 +11,42 @@
   <div class="div-input">
     <input type="text" placeholder="nombre" formControlName="nombre" />
   </div>
+  <app-control-error
+    [show]="isNombreError"
+    [errors]="nombreErrors"
+    [messages]="nombreErrorMessages"
+  ></app-control-error>
   <div class="div-input">
     <input type="text" placeholder="apellidos" formControlName="apellido" />
   </div>
+  <app-control-error
+    [show]="isApellidoError"
+    [errors]="apellidoErrors"
+    [messages]="apellidoErrorMessages"
+  ></app-control-error>
   <div class="div-input">
     <input type="text" placeholder="telefono" formControlName="telefono" />
   </div>
+  <app-control-error
+    [show]="isTelefonoError"
+    [errors]="telefonoErrors"
+    [messages]="telefonoErrorMessages"
+  ></app-control-error>
   <div class="div-input">
     <input type="text" placeholder="edad" formControlName="edad" />
   </div>
+  <app-control-error
+    [show]="isEdadError"
+    [errors]="edadErrors"
+    [messages]="edadErrorMessages"
+  ></app-control-error>
   <div class="div-input">
     <input type="text" placeholder="direccion" formControlName="direccion" />
   </div>
+  <app-control-error
+    [show]="isDireccionError"
+    [errors]="direccionErrors"
+    [messages]="direccionErrorMessages"
+  ></app-control-error>
   <button type="submit" [disabled]="userRegisterForm.invalid">Registrar</button>
 </form>

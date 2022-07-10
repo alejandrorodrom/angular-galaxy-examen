@@ -19,7 +19,6 @@ export class ControlErrorComponent {
   constructor() {}
 
   getMessage(error: string): ControlError | undefined {
-    console.log(this.messages.find((message) => message.validator === error));
     return this.messages.find((message) => message.validator === error);
   }
 }
