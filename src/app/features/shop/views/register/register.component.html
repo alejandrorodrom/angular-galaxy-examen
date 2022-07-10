@@ -1,0 +1,52 @@
+<form class="content" [formGroup]="userRegisterForm" >
+    <h3 class="title">Register</h3>
+    <app-input
+    placeholder="DNI"
+    type="dni"
+    icon="fas fa-user"
+    formControlName="dni">
+  </app-input>
+  <app-control-error [show]="isDniError" [errors]="dniErrors" [messages]="dniErrorMessage"></app-control-error>
+
+  <app-input
+    placeholder="nombres"
+    type="nombre"
+    icon="fas fa-user"
+    formControlName="nombre">
+  </app-input>
+  <app-control-error [show]="isnombreError" [errors]="nombreErrors" [messages]="nombreErrorMessage"></app-control-error>
+
+  <app-input
+    placeholder="apellidos"
+    type="apellidos"
+    icon="fas fa-user"
+    formControlName="apellidos">
+  </app-input>
+  <app-control-error [show]="isapellidosError" [errors]="apellidosErrors" [messages]="apellidosErrorMessage"></app-control-error>
+
+  <app-input
+    placeholder="edad"
+    type="edad"
+    icon="fas fa-user"
+    formControlName="edad">
+  </app-input>
+  <app-control-error [show]="isedadError" [errors]="edadErrors" [messages]="edadErrorMessage"></app-control-error>
+
+  <app-input
+    placeholder="telefono"
+    type="telefono"
+    icon="fas fa-user"
+    formControlName="telefono">
+  </app-input>
+  <app-control-error [show]="istelefonoError" [errors]="telefonoErrors" [messages]="telefonoErrorMessage"></app-control-error>
+
+  <app-input
+    placeholder="direccion"
+    type="direccion"
+    icon="fas fa-user"
+    formControlName="direccion">
+  </app-input>
+  <app-control-error [show]="isdireccionError" [errors]="direccionErrors" [messages]="direccionErrorMessage"></app-control-error>
+<app-button [disabled]="userRegisterForm.invalid" type="submit">Save</app-button>
+<button class="fs-2 mt-3 align-self-center" mat-raised-button color="accent" type="button" routerLink="/listado">Mostrar Datos</button>
+</form>

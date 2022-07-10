@@ -1,0 +1,13 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 25rem 20%;
+    text-align: center;
+  }
+  .title {
+    text-transform: uppercase;
+    padding-bottom: 3.5rem;
+    font-size: 4rem;
+    color: white;
+  }
