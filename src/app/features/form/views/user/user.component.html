@@ -1,4 +1,4 @@
-<form [formGroup]="userRegisterForm">
+<form [formGroup]="userRegisterForm" (ngSubmit)="registrar()">
   <h1>REGISTRAR USUARIO</h1>
   <div class="div-input">
     <input type="text" placeholder="dni" formControlName="dni" />
@@ -48,5 +48,6 @@
     [errors]="direccionErrors"
     [messages]="direccionErrorMessages"
   ></app-control-error>
-  <button type="submit" [disabled]="userRegisterForm.invalid">Registrar</button>
+  <button type="submit" [disabled]="userRegisterForm.invalid">Guardar</button>
+  <button type="button">Mostrar Datos</button>
 </form>

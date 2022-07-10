@@ -142,10 +142,26 @@ export class UserComponent implements OnInit {
   ];
   readonly direccionErrorMessages: ControlError[] = [
     { validator: 'required', message: 'El campo es requerido' },
-    { validator: 'maxlength', message: 'El campo debe tener un máximo de 40 caracteres' },
+    {
+      validator: 'maxlength',
+      message: 'El campo debe tener un máximo de 40 caracteres',
+    },
   ];
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  registrar(): void {
+    console.log(this.userRegisterForm.value);
+    this.userRegisterForm.setValue({
+      dni: '',
+      nombre: '',
+      apellido: '',
+      telefono: '',
+      edad: '',
+      direccion: '',
+    });
+    this.userRegisterForm.reset();
+  }
 }
