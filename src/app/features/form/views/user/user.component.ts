@@ -5,8 +5,11 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ControlError } from 'src/app/shared/interfaces/error.interface';
+import { Usuario } from 'src/app/shared/interfaces/usuario.interface';
+import { UsuarioAddAction } from 'src/app/shared/stores/usuario/usuario.actions';
+import { UsuarioStore } from 'src/app/shared/stores/usuario/usuario.store';
 
 @Component({
   selector: 'app-user',
@@ -14,28 +17,30 @@ import { ControlError } from 'src/app/shared/interfaces/error.interface';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
+  usuarios: Usuario[] = [];
+
   userRegisterForm: FormGroup = new FormGroup({
-    dni: new FormControl('', [
+    dni: new FormControl('45632145', [
       Validators.required,
       Validators.minLength(8),
       Validators.maxLength(8),
       Validators.pattern('^[0-9]*$'),
     ]),
-    nombre: new FormControl('', [Validators.required]),
-    apellido: new FormControl('', [Validators.required]),
-    telefono: new FormControl('', [
+    nombre: new FormControl('Juan', [Validators.required]),
+    apellidos: new FormControl('Perez', [Validators.required]),
+    telefono: new FormControl('999666333', [
       Validators.required,
       Validators.pattern(
         /^[+]?[(]?[0-9]{3}[)]?[-s.]?[0-9]{3}[-s.]?[0-9]{3,6}$/
       ),
     ]),
-    edad: new FormControl('', [
+    edad: new FormControl('35', [
       Validators.required,
       Validators.min(17),
       Validators.max(130),
       Validators.pattern('^[0-9]*$'),
     ]),
-    direccion: new FormControl('', [
+    direccion: new FormControl('Test 123', [
       Validators.required,
       Validators.maxLength(40),
     ]),
@@ -47,8 +52,8 @@ export class UserComponent implements OnInit {
   get nombreControl(): FormControl {
     return this.userRegisterForm.get('nombre') as FormControl;
   }
-  get apellidoControl(): FormControl {
-    return this.userRegisterForm.get('apellido') as FormControl;
+  get apellidosControl(): FormControl {
+    return this.userRegisterForm.get('apellidos') as FormControl;
   }
   get telefonoControl(): FormControl {
     return this.userRegisterForm.get('telefono') as FormControl;
@@ -72,10 +77,10 @@ export class UserComponent implements OnInit {
       (this.nombreControl.touched || this.nombreControl.dirty)
     );
   }
-  get isApellidoError(): boolean {
+  get isApellidosError(): boolean {
     return (
-      this.apellidoControl.invalid &&
-      (this.apellidoControl.touched || this.apellidoControl.dirty)
+      this.apellidosControl.invalid &&
+      (this.apellidosControl.touched || this.apellidosControl.dirty)
     );
   }
   get isTelefonoError(): boolean {
@@ -103,8 +108,8 @@ export class UserComponent implements OnInit {
   get nombreErrors(): ValidationErrors | null {
     return this.nombreControl.errors;
   }
-  get apellidoErrors(): ValidationErrors | null {
-    return this.apellidoControl.errors;
+  get apellidosErrors(): ValidationErrors | null {
+    return this.apellidosControl.errors;
   }
   get telefonoErrors(): ValidationErrors | null {
     return this.telefonoControl.errors;
@@ -125,7 +130,7 @@ export class UserComponent implements OnInit {
   readonly nombreErrorMessages: ControlError[] = [
     { validator: 'required', message: 'El campo es requerido' },
   ];
-  readonly apellidoErrorMessages: ControlError[] = [
+  readonly apellidosErrorMessages: ControlError[] = [
     { validator: 'required', message: 'El campo es requerido' },
   ];
   readonly telefonoErrorMessages: ControlError[] = [
@@ -149,16 +154,29 @@ export class UserComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private usuarioStore: UsuarioStore,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.activatedRoute.data.subscribe((value) => {
+      if (value['data'].error) {
+      } else {
+        this.usuarios = value['data'];
+      }
+    });
+  }
 
   ngOnInit(): void {}
 
   registrar(): void {
-    console.log(this.userRegisterForm.value);
+    const usuario = this.userRegisterForm.value as Usuario;
+    this.usuarioStore.dispatch(new UsuarioAddAction({ item: usuario }));
+
     this.userRegisterForm.setValue({
       dni: '',
       nombre: '',
-      apellido: '',
+      apellidos: '',
       telefono: '',
       edad: '',
       direccion: '',
