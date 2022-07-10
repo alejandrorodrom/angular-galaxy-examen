@@ -2,7 +2,7 @@
 
 ## Nombre y Apellidos:
 
-Aqui va su nombre
+Cristopher Juan Greta Quispe
 
 # Adicionales:
 
