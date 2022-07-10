@@ -6,6 +6,9 @@ import { TablaComponent } from './tabla.component';
 import { ButtonModule } from '../components/button/button.module';
 
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     TablaRoutingModule,
     ButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatButtonModule,
+    MatBadgeModule,
   ]
 })
 export class TablaModule { }
