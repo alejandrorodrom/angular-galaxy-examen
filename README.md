@@ -8,3 +8,7 @@ Henry Wilson Tornero Yaya
 
 - Adicional 1
 - Adicional 2
+
+## Observaciones
+
+- No encontre cambios 😢
