@@ -12,7 +12,7 @@ export class FormularioComponent implements OnInit {
   constructor(
     private router: Router
   ) {
-    
+
   }
 
   ngOnInit(): void {
@@ -50,7 +50,7 @@ export class FormularioComponent implements OnInit {
       '',
       [
         Validators.required,
-        Validators.pattern('/^[0-9]{1,2}$/'),
+        // Validators.pattern('/^[0-9]{1,2}$/'),
         Validators.minLength(17),
         Validators.maxLength(130)
       ]
